@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    
+    <h:head>
+        <title>Lista Contatos</title>
+    </h:head>
+    <h:body>
+        <h:dataTable value="#{listaContatosBean.contatos}" var="contato">
+            <f:facet name="header">Lista de Contatos</f:facet>
+            <h:column>
+                <f:facet name="header">Nome</f:facet>
+                #{contato.nome}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Data de Nascimento</f:facet>
+                <!--#{contato.dtNascimento}-->
+                <h:outputText value="#{contato.dtNascimento.time}">
+                    <f:convertDateTime pattern="dd/MM/yyyy"/>
+                </h:outputText>
+            </h:column>
+            
+            <h:column>
+                <f:facet name="header">Endereco</f:facet>
+                #{contato.endereco}
+            </h:column>
+            
+            
+        </h:dataTable>
+        
+    </h:body>
+</html>
+ 

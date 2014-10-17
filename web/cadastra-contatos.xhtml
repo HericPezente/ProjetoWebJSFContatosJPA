@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+      
+    <head>
+        <title> Lista Contatos</title>
+        <meta name="viewport" content="width=device-width"/>
+    </head>
+    <body>
+        <h:form>
+            <h:panelGrid columns="2">
+                <h:outputLabel value="Nome:" for="nome"/>
+                <h:inputText id="nome" value="#{cadastroContatosBean.contato.nome}"/>
+                
+               
+                <h:outputLabel value="Data de Nascimento:" for="dataNascimento"/>
+                <h:inputText  id="dataNascimento" value="#{cadastroContatosBean.contato.dtNascimento}">
+                    <f:converter converterId="conversorData"/>
+                     <!--<f:convertDateTime type="date" pattern="dd/MM/yyyy"/>-->
+                     
+                </h:inputText>     
+                
+                <h:outputLabel value="Endereco:" for="endereco"/>
+                <h:inputText id="endereco" value="#{cadastroContatosBean.contato.endereco}"/>  
+                
+                <h:commandButton value="Gravar" action="#{cadastroContatosBean.grava}" />
+                
+            </h:panelGrid>
+        </h:form>
+    </body>
+</html>
