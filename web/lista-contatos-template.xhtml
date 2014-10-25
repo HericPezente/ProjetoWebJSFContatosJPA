@@ -1,0 +1,44 @@
+<ui:composition template="template.xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <ui:define name="conteudo">
+        <h:button value="Novo Contato" outcome="cadastro-contatos-template"/>
+        <h:form>
+            <h:dataTable value="#{listaContatosBean.contatos}" var="contato">
+                <h:column>
+                    <f:facet name="header">Nome</f:facet>
+                        #{contato.nome}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Data de Nascimento</f:facet>
+                    <h:outputText value="#{contato.dtNascimento.time}">
+                        <f:convertDateTime pattern="dd/MM/yyyy"/>
+                    </h:outputText>
+                </h:column>    
+
+                <h:column>
+                    <f:facet name="header">Endereço</f:facet>
+                        #{contato.endereco}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Email</f:facet>
+                        #{contato.email}
+                </h:column>
+
+                <h:column>
+                    <h:link value="Editar" outcome="cadastro-contatos-template">
+                        <f:param name="id" value="#{contato.id}"/>
+                    </h:link>
+                </h:column>
+
+                <h:column>
+                    <h:commandLink value="Excluir" action="#{listaContatosBean.remove(contato)}"/>
+                </h:column>
+
+            </h:dataTable>
+        </h:form>
+
+    </ui:define>
+</ui:composition>

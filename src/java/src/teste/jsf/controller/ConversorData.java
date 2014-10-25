@@ -25,7 +25,7 @@ public class ConversorData implements Converter{
 
     @Override
     public Object getAsObject(FacesContext fc, UIComponent uic, String value) {
-        System.out.println("getAsObject");
+        
         if(value == null || value.equals(""))
         return null;
             Calendar calendar=Calendar.getInstance();
@@ -42,7 +42,7 @@ public class ConversorData implements Converter{
 
     @Override
     public String getAsString(FacesContext fc, UIComponent uic, Object value) {
-        System.out.println("getAsString");
+        
         if(value ==  null)
         return null;
         

@@ -24,4 +24,8 @@ public class ListaContatosBean {
         return dao.getLista();
         
     }
+    
+    public void remove(Contato contato){
+        new ContatoDao().remove(contato);
+    }
 }
