@@ -16,6 +16,9 @@ and open the template in the editor.
     <h:body>
         <div id="header">
             <h1>Agenda de Contatos</h1>
+            <h:form>
+                <p>Usuario logado:#{loginBean.usuario}</p> <h:commandLink value="Logout" action="#{loginBean.logout()}"/>
+            </h:form>
             <hr/>
         </div>
         <ui:insert name="conteudo">Contéudo</ui:insert>

@@ -65,7 +65,7 @@ public class CadastroContatosBean {
 
     public String grava() {
 
-        if (contato.getNome()==null) {
+        if (contato.getNome().equals("")) {
             System.out.println("passou por aqui getNome");
             FacesMessage message = new FacesMessage("O nome deve ser definido.");
             FacesContext.getCurrentInstance().addMessage(null, message);
