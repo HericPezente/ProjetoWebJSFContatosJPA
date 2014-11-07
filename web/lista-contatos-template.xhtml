@@ -24,12 +24,14 @@
 
                 <h:column>
                     <f:facet name="header">Email</f:facet>
-                        #{contato.email}
+                        
+                    <h:outputLink value="mailto:#{contato.email}" target="_blank" >#{contato.email}</h:outputLink>
                 </h:column>
 
                 <h:column>
                     <h:link value="Editar" outcome="cadastro-contatos-template">
-                        <f:param name="id" value="#{contato.id}"/>
+                        <f:param name="id" value="#{contato.id}" />
+                        
                     </h:link>
                 </h:column>
 

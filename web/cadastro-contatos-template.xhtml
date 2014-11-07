@@ -4,19 +4,26 @@
     <ui:define name="conteudo">
 
         <h:form>
-            <h:messages globalOnly="true"/>
-            <h:inputHidden value="#{cadastroContatosBean.contato.id}"/>
+            <!-- <h:messages globalOnly="true"/>-->
+            <h:messages/>
+            <h:inputHidden id="id" value="#{cadastroContatosBean.contato.id}"/>
             <h:panelGrid columns="2">
                 <h:outputLabel value="Nome:" for="nome"/>
-                <h:inputText id="nome" value="#{cadastroContatosBean.contato.nome}"/>
+                <h:inputText id="nome" value="#{cadastroContatosBean.contato.nome}" required="true"/>
 
                 <h:outputLabel value="Data de Nascimento:" for="dataNasc"/>
-                <h:inputText id="dataNasc" value="#{cadastroContatosBean.contato.dtNascimento}">
+                <h:inputText id="dataNasc" value="#{cadastroContatosBean.contato.dtNascimento}" required="true">
                     <f:converter converterId="conversorData"/>
                 </h:inputText>
 
                 <h:outputLabel value="Endereço:" for="endereco"/>
                 <h:inputText id="endereco" value="#{cadastroContatosBean.contato.endereco}"/>
+
+                <h:outputLabel value="Email:" for="email"/>
+                <h:inputText id="email" value="#{cadastroContatosBean.contato.email}" label="Email" required="true" validatorMessage="O email é inválido"
+                             valueChangeListener="#{cadastroContatosBean.emailChanged}" onchange="submit();">
+                    <f:validateRegex pattern="[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\.[a-zA-Z]{2,4}"/>
+                </h:inputText>    
 
                 <h:commandButton value="Enviar" action="#{cadastroContatosBean.grava()}"/>
                 <h:button value="Voltar" outcome="lista-contatos-template"/>
