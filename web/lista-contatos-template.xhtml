@@ -35,9 +35,14 @@
                     </h:link>
                 </h:column>
 
+                   
                 <h:column>
-                    <h:commandLink value="Excluir" action="#{listaContatosBean.remove(contato)}"/>
+                  
+                    <h:commandLink value="Excluir">
+                        <f:ajax listener="#{listaContatosBean.remove(contato)}" render="@form"/>           
+                    </h:commandLink>
                 </h:column>
+                 <!--<h:column> <h:commandLink value="Excluir" action="#{listaContatosBean.remove(contato)}"/> </h:column>-->  
 
             </h:dataTable>
         </h:form>

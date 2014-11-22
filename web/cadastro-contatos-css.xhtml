@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+
+<ui:composition template="template_css.xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:pt="http://java.sun.com/jsf/passthrough">
+
+    <ui:define name="conteudo">
+        <h:form>
+            <h:messages id="messages" infoClass="alert alert-info" warnClass="alert alert-warning" errorClass="alert alert-danger"/>
+            <h:inputHidden id="id" value="#{cadastroContatosBean.contato.id}"/>
+            <fieldset>
+                <legend>Cadastro de Contatos</legend>
+                <div class="form-group">
+                    <h:outputLabel value="Nome: " for="nome"/>
+                    <h:inputText id="nome" styleClass="form-control" value="#{cadastroContatosBean.contato.nome}" label="nome" required="true" pt:autofocus="true"/>
+                </div>    
+
+                <div class="form-group">
+                    <h:outputLabel value="Email:" for="email"/>
+                    <div class="input-group">
+                        <span class="input-group-addon">@</span>
+                        <h:inputText id="email" styleClass="form-control" value="#{cadastroContatosBean.contato.email}" label="Email" required="true" validatorMessage="O email é inváldo." valueChangeListener="#{cadastroContatosBean.emailChanged}">
+                            <f:validateRegex  pattern="[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\.[a-zA-Z]{2,4}"/>
+                            <f:ajax render="@this messages" execute="@this id"/>
+                        </h:inputText> 
+
+                    </div>    
+                </div>    
+                
+                <div class="form-group">
+                    <h:outputLabel value="Data de Nascimento" for="dataNascimento"/>
+                    <h:inputText id="dataNascimento" pt:type="date" styleClass="form-control" value="#{cadastroContatosBean.contato.dtNascimento}" label="Data de Nascimento" required="true">
+                        <f:converter converterId="conversorData"/>  
+                        <f:ajax render="@this messages"/>
+                    </h:inputText>  
+                </div>
+
+            </fieldset>    
+
+            <div class="btn-group">
+                <h:commandButton class="btn btn-primary" value="Enviar" action="#{cadastroContatosBean.grava()}"/>
+                    <h:button class="btn btn-default" value="Lista de Contatos" outcome="lista-contatos-css"/>
+            </div>    
+
+        </h:form>    
+
+    </ui:define>    
+
+</ui:composition> 

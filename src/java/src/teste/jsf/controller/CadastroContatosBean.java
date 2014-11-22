@@ -29,6 +29,10 @@ public class CadastroContatosBean {
 
     @ManagedProperty("#{param.id}")
     private Long id;
+    
+    public CadastroContatosBean(){
+        System.out.println("Construtor");
+    }
 
     public Contato getContato() {
 
