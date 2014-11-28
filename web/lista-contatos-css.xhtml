@@ -2,51 +2,79 @@
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:f="http://java.sun.com/jsf/core"
-                xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+                xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+                xmlns:p="http://primefaces.org/ui">
 
     <ui:define name="conteudo">
         <h:form>
+            <p:growl/>
             <fieldset>
-                <legend>Lista de Contatos <h:button styleClass="btn btn-primary btn-sm navbar-right" value="Novo Contato" outcome="cadastro-contatos-template"/></legend>
-                <h:dataTable styleClass="table table-condensed table-hover" value="#{listaContatosBean.contatos}" var="contato">
-                    <h:column>
+                <legend>Lista de Contatos <h:button styleClass="btn btn-primary btn-sm navbar-right" value="Novo Contato" outcome="cadastro-contatos-css"/></legend>
+
+                <h:outputLabel for="pesquisa" value="Pesquisa Contato:"/>
+
+                <!--<h:dataTable styleClass="table table-condensed table-hover" value="#_{listaContatosBean.contatos}" var="contato">-->
+                <p:dataTable lazy="true" emptyMessage="Não há contatos" paginator="true" rows="5" styleClass="table table-condensed table-hover" value="#{listaContatosBean.contatos}" var="contato">
+
+
+                    <!--<h:column>-->
+                    <p:column>
                         <f:facet name="header">Nome</f:facet>                            
                             #{contato.nome}
-                    </h:column>    
+                    </p:column>
+                    <!--</h:column>-->
 
-                    <h:column>
+                    <!--<h:column>-->
+                    <p:column>
                         <f:facet name="header">Dt. Nascimento </f:facet>
                         <h:outputText value="#{contato.dtNascimento.time}">
                             <f:convertDateTime pattern="dd/MM/yyyy"/>
                         </h:outputText>
-                    </h:column>
+                    </p:column>    
+                    <!--</h:column>-->
 
-                    <h:column>
+                    <!--<h:column>-->
+                    <p:column>
                         <f:facet name="header">Email</f:facet>
                         <h:outputLink value="mailto:#{contato.email}" target="_blank">#{contato.email}</h:outputLink>
-                    </h:column>    
+                    </p:column>    
+                    <!--</h:column>-->
 
-                    <h:column>
+
+                    <!--<h:column>-->
+                    <p:column>
                         <f:facet name="header">Endereço</f:facet>
                             #{contato.endereco}
-                    </h:column>
+                    </p:column>    
+                    <!--</h:column>-->
 
-                    <h:column>
+                    <!--<h:column>-->
+                    <p:column>
                         <f:facet name="header">Acoes</f:facet>
-                        <h:link outcome="cadastro-contatos-template">
-                            <span class="glyphicon glyphicon-minus-sign"></span>
+                        <h:link outcome="cadastro-contatos-css">
+                            <span class="glyphicon glyphicon-edit"></span>
                             <f:param name="id" value="#{contato.id}"/>
                         </h:link>    
 
 
-                        <h:commandLink>
+                        <!--<h:commandLink>-->
+                        <p:commandLink>
+                            <p:confirm header="Confirmação" message="Deseja realmente remover?" icon="ui-icon-alert"/>
                             <span class="glyphicon glyphicon-minus-sign"></span>
                             <f:ajax listener="#{listaContatosBean.remove(contato)}" render="@form"/>
-                        </h:commandLink>    
-                        
-                    </h:column>    
-                    
-                </h:dataTable>    
+                        </p:commandLink>     
+                         <!--</h:commandLink>-->   
+
+                        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                            <p:commandButton value="Sim" type="button" styleClass="ui-confimdialog-yes" icon="ui-icon-check"/>
+                            <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>
+                        </p:confirmDialog>    
+
+                    </p:column>    
+                    <!--</h:column>-->
+
+                </p:dataTable>    
+                <!--</h:dataTable>-->    
             </fieldset>    
         </h:form>
     </ui:define>    

@@ -21,11 +21,13 @@ public class ListaContatosBean {
     
     public List<Contato> getContatos(){
         ContatoDao dao= new ContatoDao();
+        
         return dao.getLista();
         
     }
     
     public void remove(Contato contato){
+        System.out.println("passou por aqui@");
         new ContatoDao().remove(contato);
     }
 }

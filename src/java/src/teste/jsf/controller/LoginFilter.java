@@ -24,7 +24,8 @@ import javax.servlet.http.HttpSession;
  */
 
 
-@WebFilter(urlPatterns = {"/lista-contatos-template","/cadastro-contatos-template"})
+//@WebFilter(urlPatterns = {"/lista-contatos-template","/cadastro-contatos-template"})
+@WebFilter (urlPatterns = {"/lista-contatos-css.xhtml","/cadastro-contatos-css.xhtml"})
 public class LoginFilter  implements Filter{
 
     @Override
@@ -34,11 +35,11 @@ public class LoginFilter  implements Filter{
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-       System.out.println("passou por aqui"); 
+       
         HttpSession session= ((HttpServletRequest)request).getSession(false);
         if(session==null|| session.getAttribute("usuario")==null){
             
-            ((HttpServletResponse) response).sendRedirect("login.xhtml");
+            ((HttpServletResponse) response).sendRedirect("login_css.xhtml");
         return;
         }
         

@@ -9,7 +9,8 @@ and open the template in the editor.
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough" accesskey=" ">
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough" accesskey=""
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Agenda de Contatos</title>
 
@@ -23,7 +24,8 @@ and open the template in the editor.
         <h:form styleClass="form-signin">
             <h2 class="form-signin-heading">Entre com o login</h2>
             
-            <h:messages infoClass="alert alert-info" warnClass="alert alert-warning" errorClass="alert alert-danger"/> 
+            <!--<h:messages infoClass="alert alert-info" warnClass="alert alert-warning" errorClass="alert alert-danger"/> -->
+            <p:growl/>
             
             <h:inputText pt:placeholder="Usuario" id="usuario" value="#{loginBean.usuario}" required="true" label="Usuário" pt:autofocus="true" styleClass="form-control"/>
            

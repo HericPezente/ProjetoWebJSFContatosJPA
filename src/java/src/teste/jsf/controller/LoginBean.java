@@ -27,7 +27,7 @@ public class LoginBean {
     }
 
     public void setUsuario(String usuario) {
-        System.out.println("teste 1");
+        
         this.usuario = usuario;
     }
 
@@ -36,7 +36,7 @@ public class LoginBean {
     }
 
     public void setSenha(String senha) {
-        System.out.println("teste 2");
+        
         this.senha = senha;
     }
 
@@ -56,7 +56,8 @@ public class LoginBean {
 
         FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", usuario);
         
-        return "lista-contatos-template?faces-redirect=true";
+        //return "lista-contatos-template?faces-redirect=true";
+        return "lista-contatos-css?faces-redirect=true";
 
     }
     

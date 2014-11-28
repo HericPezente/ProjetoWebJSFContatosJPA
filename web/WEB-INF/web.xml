@@ -27,5 +27,11 @@
       <param-value>true</param-value>
     </context-param>
     
+    <context-param>
+        <param-name>primesfaces.THEME</param-name>
+        <param-value>bootstrap</param-value>
+        
+    </context-param>    
+    
     
 </web-app>

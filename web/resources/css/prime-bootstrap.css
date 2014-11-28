@@ -1,0 +1,27 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 23/11/2014, 22:16:02
+    Author     : MEUS DOCUMENTOS
+*/
+
+.ui-inputfield{
+    height: 34px;
+}
+
+.calendar.form-control{
+    display: table;
+    width: 50%;
+    border: none;
+    height: 100%;
+    
+    
+}
+
+.calendar.form-control>.ui-inputfield{
+    width: 100%;
+}
+
