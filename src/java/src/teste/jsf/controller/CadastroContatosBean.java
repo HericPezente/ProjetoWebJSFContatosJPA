@@ -13,9 +13,13 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.component.UIInput;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
+import javax.persistence.EntityManager;
+import javax.servlet.http.HttpServletRequest;
 import jdbc.dao.ContatoDao;
+import jdbc.model.ContatoRepository;
 import jdbc.modelo.Contato;
 
 /**
@@ -54,11 +58,13 @@ public class CadastroContatosBean {
         this.id = id;
     }
 
+    
     @PostConstruct
     public void init() {
         if (id != null) {
             try {
-
+                //JPA EntityManager em=getEntityManager();
+                //JPA this.contato= new ContatoRepository(em).buscaPorId(id);
                 this.contato = new ContatoDao().buscaPorId(id);
 
             } catch (SQLException ex) {
@@ -69,8 +75,16 @@ public class CadastroContatosBean {
 
     }
 
+    /* JPA public EntityManager getEntityManager(){
+        FacesContext fc=FacesContext.getCurrentInstance();
+        ExternalContext ec=fc.getExternalContext();
+        HttpServletRequest request=(HttpServletRequest)ec.getRequest();
+        EntityManager manager=(EntityManager)request.getAttribute("EntityManager");
+        return manager;
+    }*/
     public String grava() {
-
+        //JPA EntityManager manager = getEntityManager();
+        //JPA  new ContatoRepository(manager).adiciona(contato);
         if (contato.getNome()== null) {
             
             FacesMessage message = new FacesMessage("O nome deve ser definido.");
@@ -112,6 +126,9 @@ public class CadastroContatosBean {
 
         if (newEmailValue != null && !newEmailValue.equals(oldEmailValue)) {
             try {
+                //JPA EntityManager manager = getEntityManager();
+                //JPA Contato contato = new
+                //JPA ContatoRepository(manager).buscaPorEmail(newEmailValue);  
                 Contato contato = new ContatoDao().buscaPorEmail(newEmailValue);
                 if(contato != null){
          

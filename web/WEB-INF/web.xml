@@ -32,6 +32,22 @@
         <param-value>bootstrap</param-value>
         
     </context-param>    
+   
+ 
+    <!--<filter>
+        <filter-name>JpaFilter</filter-name>
+        <filter-class>teste.jsf.filter.JpaFilter</filter-class>
+    </filter>
     
+    <filter-mapping>
+        <filter-name>JpaFilter</filter-name>
+        <url-pattern>/lista-contatos-css.xhtml</url-pattern>
+    </filter-mapping>
     
+    <filter-mapping>
+        <filter-name>JpaFilter</filter-name>
+        <url-pattern>/cadastro-contatos-css.xhtml</url-pattern>
+    </filter-mapping>*/
+    -->
+     
 </web-app>

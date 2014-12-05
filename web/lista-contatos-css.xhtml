@@ -50,7 +50,7 @@
 
                     <!--<h:column>-->
                     <p:column>
-                        <f:facet name="header">Acoes</f:facet>
+                        <f:facet name="header">Ações</f:facet>
                         <h:link outcome="cadastro-contatos-css">
                             <span class="glyphicon glyphicon-edit"></span>
                             <f:param name="id" value="#{contato.id}"/>
@@ -62,11 +62,12 @@
                             <p:confirm header="Confirmação" message="Deseja realmente remover?" icon="ui-icon-alert"/>
                             <span class="glyphicon glyphicon-minus-sign"></span>
                             <f:ajax listener="#{listaContatosBean.remove(contato)}" render="@form"/>
+                            <!--JPA p:commandLink action="#_{listaContatosBean.remove(contato)}"/>-->
                         </p:commandLink>     
                          <!--</h:commandLink>-->   
 
                         <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-                            <p:commandButton value="Sim" type="button" styleClass="ui-confimdialog-yes" icon="ui-icon-check"/>
+                            <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
                             <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>
                         </p:confirmDialog>    
 

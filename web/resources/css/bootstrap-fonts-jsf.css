@@ -8,12 +8,18 @@ and open the template in the editor.
     Author     : MEUS DOCUMENTOS
 */
 
-@font-face{
+/*@font-face{
 font-family:'Glyphicons Halflings';
 src url('#{resource["fonts/glyphicons-halflings-regular.eot"]}');
 src url('#{resource["fonts/glyphicons-halflings-regular.eot?#iefix"]}')
 format('embedded-opentype'),url('#{resource["fonts/glyphicons-halflings-regular.woff"]}')
 format('woff'), url('#{resource["fonts/glyphicons-halflings-regular.ttf"]}') format('truetype'),
-url('#{resource["fonts/glyphicons-halflings-regular.svg#glyphicons-halflings-regular"]}')
+url('#{resource["fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular"]}')
 format('svg');
+}
+*/
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url('#{resource["fonts/glyphicons-halflings-regular.eot"]}');
+    src: url('#{resource["fonts/glyphicons-halflings-regular.eot?#iefix"]}') format('embedded-opentype'), url('#{resource["fonts/glyphicons-halflings-regular.woff"]}') format('woff'), url('#{resource["fonts/glyphicons-halflings-regular.ttf"]}') format('truetype'), url('#{resource["fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular"]}') format('svg');
 }
