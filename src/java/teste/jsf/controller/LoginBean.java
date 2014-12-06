@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package src.teste.jsf.controller;
+package teste.jsf.controller;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -14,7 +14,6 @@ import javax.faces.context.FacesContext;
  *
  * @author MEUS DOCUMENTOS
  */
-
 @ManagedBean
 @SessionScoped
 public class LoginBean {
@@ -27,7 +26,6 @@ public class LoginBean {
     }
 
     public void setUsuario(String usuario) {
-        
         this.usuario = usuario;
     }
 
@@ -36,17 +34,10 @@ public class LoginBean {
     }
 
     public void setSenha(String senha) {
-        
         this.senha = senha;
     }
 
     public String login() {
-        if (this.usuario.equals("")) {
-            FacesMessage message = new FacesMessage("O usuário deve ser definido.");
-            FacesContext.getCurrentInstance().addMessage(null, message);
-            return null;
-        }
-
         if ("admin".equals(usuario) && !"123".equals(senha)) {
             //Mensagen de validação
             FacesMessage message = new FacesMessage("O usuário não existe ou a senha é invalida.");
@@ -55,15 +46,12 @@ public class LoginBean {
         }
 
         FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", usuario);
-        
-        //return "lista-contatos-template?faces-redirect=true";
         return "lista-contatos-css?faces-redirect=true";
 
     }
-    
-    public String logout(){
+
+    public String logout() {
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-        return "login?faces-redirect=true"; 
+        return "login?faces-redirect=true";
     }
-    
 }

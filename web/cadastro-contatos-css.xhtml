@@ -14,8 +14,7 @@ and open the template in the editor.
 
     <ui:define name="conteudo">
         <h:form>
-            <!--<h:messages id="messages" infoClass="alert alert-info" warnClass="alert alert-warning" errorClass="alert alert-danger"/>-->
-            <p:growl/>
+            <p:growl id="messages"/>
             <h:inputHidden id="id" value="#{cadastroContatosBean.contato.id}"/>
             <fieldset>
                 <legend>Cadastro de Contatos</legend>
@@ -23,7 +22,7 @@ and open the template in the editor.
                     <h:outputLabel value="Nome: " for="nome"/>
                     <h:inputText id="nome" styleClass="form-control" value="#{cadastroContatosBean.contato.nome}" label="nome" required="true" pt:autofocus="true"/>
                 </div>    
-                 
+
                 <div class="form-group">
                     <h:outputLabel value="Email:" for="email"/>
                     <div class="input-group">
@@ -35,33 +34,19 @@ and open the template in the editor.
 
                     </div>    
                 </div>    
-                
-                <!--
-                <div class="form-group">
-                    <h:outputLabel value="Data de Nascimento" for="dataNascimento"/>
-                    <h:inputText id="dataNascimento" pt:type="date" styleClass="form-control" value="#//{cadastroContatosBean.contato.dtNascimento}" label="Data de Nascimento" required="true">
-                        <f:converter converterId="conversorData"/>  
-                        <f:ajax render="@this messages"/>
-                    </h:inputText>  
-                </div>
-                -->
-                    
+
                 <div  class="form-group" >
                     <h:outputLabel value="Data de Nascimento" for="dataNascimento"/>
-                    <p:calendar  pattern="dd/MM/yyyy" mask="true" id="dataNascimento" styleClass="form-control calendar" value="#{cadastroContatosBean.contato.dtNascimento}" label="Data de Nascimento" >
+                    <p:calendar  pattern="dd/MM/yyyy" mask="true" id="dataNascimento" styleClass="form-control calendar" value="#{cadastroContatosBean.contato.dataNascimento}" label="Data de Nascimento" >
                         <f:converter converterId="conversorData"/>   
                     </p:calendar>    
                 </div>    
-            
-           </fieldset>         
-     
+            </fieldset>         
+
             <div class="btn-group">
                 <h:commandButton  class="btn btn-primary" value="Enviar" action="#{cadastroContatosBean.grava()}"/>
-                    <h:button  class="btn btn-default" value="Lista de Contatos" outcome="lista-contatos-css"/>
+                <h:button  class="btn btn-default" value="Lista de Contatos" outcome="lista-contatos-css"/>
             </div>    
-   
         </h:form>    
-
     </ui:define>    
-
 </ui:composition> 

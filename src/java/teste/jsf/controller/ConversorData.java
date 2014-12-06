@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package src.teste.jsf.controller;
+package teste.jsf.controller;
 
 import java.text.ParseException;
 import java.util.Date;

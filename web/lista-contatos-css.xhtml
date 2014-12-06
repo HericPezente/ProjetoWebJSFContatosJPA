@@ -12,43 +12,29 @@
                 <legend>Lista de Contatos <h:button styleClass="btn btn-primary btn-sm navbar-right" value="Novo Contato" outcome="cadastro-contatos-css"/></legend>
 
                 <h:outputLabel for="pesquisa" value="Pesquisa Contato:"/>
-
-                <!--<h:dataTable styleClass="table table-condensed table-hover" value="#_{listaContatosBean.contatos}" var="contato">-->
                 <p:dataTable lazy="true" emptyMessage="Não há contatos" paginator="true" rows="5" styleClass="table table-condensed table-hover" value="#{listaContatosBean.contatos}" var="contato">
-
-
-                    <!--<h:column>-->
                     <p:column>
                         <f:facet name="header">Nome</f:facet>                            
                             #{contato.nome}
                     </p:column>
-                    <!--</h:column>-->
 
-                    <!--<h:column>-->
                     <p:column>
                         <f:facet name="header">Dt. Nascimento </f:facet>
-                        <h:outputText value="#{contato.dtNascimento.time}">
+                        <h:outputText value="#{contato.dataNascimento.time}">
                             <f:convertDateTime pattern="dd/MM/yyyy"/>
                         </h:outputText>
                     </p:column>    
-                    <!--</h:column>-->
 
-                    <!--<h:column>-->
                     <p:column>
                         <f:facet name="header">Email</f:facet>
                         <h:outputLink value="mailto:#{contato.email}" target="_blank">#{contato.email}</h:outputLink>
                     </p:column>    
-                    <!--</h:column>-->
 
-
-                    <!--<h:column>-->
                     <p:column>
                         <f:facet name="header">Endereço</f:facet>
                             #{contato.endereco}
                     </p:column>    
-                    <!--</h:column>-->
 
-                    <!--<h:column>-->
                     <p:column>
                         <f:facet name="header">Ações</f:facet>
                         <h:link outcome="cadastro-contatos-css">
@@ -56,15 +42,10 @@
                             <f:param name="id" value="#{contato.id}"/>
                         </h:link>    
 
-
-                        <!--<h:commandLink>-->
-                        <p:commandLink>
+                        <p:commandLink action="#{listaContatosBean.remove(contato)}">
                             <p:confirm header="Confirmação" message="Deseja realmente remover?" icon="ui-icon-alert"/>
                             <span class="glyphicon glyphicon-minus-sign"></span>
-                            <f:ajax listener="#{listaContatosBean.remove(contato)}" render="@form"/>
-                            <!--JPA p:commandLink action="#_{listaContatosBean.remove(contato)}"/>-->
                         </p:commandLink>     
-                         <!--</h:commandLink>-->   
 
                         <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
                             <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
@@ -72,10 +53,7 @@
                         </p:confirmDialog>    
 
                     </p:column>    
-                    <!--</h:column>-->
-
                 </p:dataTable>    
-                <!--</h:dataTable>-->    
             </fieldset>    
         </h:form>
     </ui:define>    

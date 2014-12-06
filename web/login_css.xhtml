@@ -24,11 +24,9 @@ and open the template in the editor.
         <h:form styleClass="form-signin">
             <h2 class="form-signin-heading">Entre com o login</h2>
             
-            <!--<h:messages infoClass="alert alert-info" warnClass="alert alert-warning" errorClass="alert alert-danger"/> -->
             <p:growl/>
             
             <h:inputText pt:placeholder="Usuario" id="usuario" value="#{loginBean.usuario}" required="true" label="Usuário" pt:autofocus="true" styleClass="form-control"/>
-           
             <h:inputSecret pt:placeholder="Senha" id="senha" styleClass="form-control" value="#{loginBean.senha}" />
         
            <h:commandButton value="Entrar" styleClass="btn btn-lg btn-primary btn-block " action="#{loginBean.login()}"/> 

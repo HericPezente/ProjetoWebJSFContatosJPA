@@ -3,10 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package teste.jsf.filter;
 
-package src.teste.jsf.filter;
-
-import com.sun.faces.config.WebConfiguration;
 import java.io.IOException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -17,36 +15,33 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.annotation.WebFilter;
-
-
 
 /**
  *
  * @author MEUS DOCUMENTOS
  */
-public class JpaFilter implements Filter{
-    
+public class JpaFilter implements Filter {
+
     private EntityManagerFactory factory;
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        factory=Persistence.createEntityManagerFactory("ContatosPU");
+        factory = Persistence.createEntityManagerFactory("ContatosPU");
     }
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        EntityManager manager= this.factory.createEntityManager();
-        request.setAttribute("EntityManager",manager);
+        EntityManager manager = this.factory.createEntityManager();
+        request.setAttribute("EntityManager", manager);
         manager.getTransaction().begin();
-        try{
+        try {
             chain.doFilter(request, response);
             manager.getTransaction().commit();
-        }catch(IOException e){
+        } catch (IOException e) {
             manager.getTransaction().rollback();
             throw new ServletException(e);
-            
-        }finally{
+
+        } finally {
             manager.close();
         }
     }
@@ -55,6 +50,5 @@ public class JpaFilter implements Filter{
     public void destroy() {
         this.factory.close();
     }
-    
-    
+
 }
