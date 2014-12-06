@@ -89,6 +89,21 @@ public class Telefone implements Serializable{ //Os dados gravado no banco irão
     }
     
     
+    public enum Tipo{
+       
+        TRABALHO("T","Trabalho"), 
+        FIXO("F","Fixo"),
+        CELULAR("C","Celular");
+        private String id;
+        private String descricao;
+        
+        Tipo(String id,String descricao){
+            this.id=id;
+            this.descricao=descricao;
+        }
+        
+    }
+    
     
     
     

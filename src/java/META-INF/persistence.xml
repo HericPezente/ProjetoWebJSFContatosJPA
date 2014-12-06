@@ -10,11 +10,13 @@ and open the template in the editor.
     <persistence-unit name="ContatosPU" transaction-type="RESOURCE_LOCAL">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <class>teste.modelo.Contato</class>
+        <class>teste.teste.modelo.Telefone</class>
         <properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/contatos"/>
             <property name="javax.persistence.jdbc.password" value="admin"/>
             <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
             <property name="javax.persistence.jdbc.user" value="admin"/>
+            
         </properties>
     </persistence-unit>
 </persistence>
